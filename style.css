@@ -184,6 +184,12 @@ form {
         margin-bottom: 0;
     }
 
+    .big-card__username {
+        font-size: 16px;
+        color: rgb(168, 172, 175);
+        margin-bottom: 0;
+    }
+
     .big-card__city {
         font-size: 16px;
         color: rgb(168, 172, 175);

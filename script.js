@@ -18,6 +18,9 @@ bigName.className = 'big-card__name';
 var pContainer = document.createElement('div');
 pContainer.className = 'p-container';
 
+var bigUsername = document.createElement('p');
+bigUsername.className = 'big-card__username';
+
 var bigEmail = document.createElement('p');
 bigEmail.className = 'big-card__email';
 
@@ -44,6 +47,7 @@ var searchInput = document.getElementById('search');
 
 
 pContainer.appendChild(bigEmail);
+pContainer.appendChild(bigUsername);
 pContainer.appendChild(bigCity);
 pContainer.appendChild(horizontalRule);
 pContainer.appendChild(bigNumber);
@@ -81,6 +85,7 @@ $.ajax({
             var personContainer = document.createElement('div');
             var personPicture = document.createElement('img');
             var personName = document.createElement('h2');
+            var userName = document.createElement('p');
             var personEmail = document.createElement('p');
             var personLocation = document.createElement('p');
             personLocation.className = 'location-card';
@@ -92,11 +97,13 @@ $.ajax({
             personPicture.className = 'person-picture';
 
             personName.innerHTML = person.name.first + ' ' + person.name.last;
+            userName.innerHTML = person.login.username;
             personEmail.innerHTML = person.email;
             personLocation.innerHTML = person.location.city;
 
             pictureContainer.appendChild(personPicture);
             textContainer.appendChild(personName);
+            textContainer.appendChild(userName);
             textContainer.appendChild(personEmail);
             textContainer.appendChild(personLocation);
             personContainer.appendChild(pictureContainer);
@@ -153,6 +160,7 @@ function getCurrentPerson(currentPerson, index) {
     bigProfilePicture.setAttribute('src', currentPerson.picture.large);
     bigName.innerHTML = currentPerson.name.first + ' ' + currentPerson.name.last;
     bigEmail.innerHTML = currentPerson.email;
+    bigUsername.innerHTML = currentPerson.login.username;
     bigCity.innerHTML = currentPerson.location.city;
     bigNumber.innerHTML = currentPerson.cell;
     bigAddress.innerHTML = currentPerson.location.street + ', ' + currentPerson.location.city + ', ' + currentPerson.nat + ' ' + currentPerson.location.postcode;
